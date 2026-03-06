@@ -26,16 +26,23 @@ export default function HomePage() {
         getAccomplishments();
     }, [id]);
 
+
     return (
         <>
             <div className="accomplishmentContainer">
-                <h1>{`${user.firstName} ${user.lastName}`}</h1>
-                <h2>{`${user.username}'s Accomplishment`}</h2>
+                <header className="accomplishmentHeader">
+                    <h1>{`Welcome, ${user.firstName} ${user.lastName}`}</h1>
+                    <h2>{`${user.username}'s Accomplishment`}</h2>
+                </header>
 
                 <div>
                     {accomplishments.map((a, index) => (
                         <div key={index} className="accomplishmentCard">
-                            <h3>{a.accomplishment}</h3>
+
+                            <div className="accomplismentName">
+                                <h3>{a.accomplishment}</h3>
+                            </div>
+
                             {a.notes && (
                                 <ul>
                                     {a.notes.map((note, idx) => (
@@ -43,6 +50,17 @@ export default function HomePage() {
                                     ))}
                                 </ul>
                             )}
+
+                            <div className="cardStatus">
+                                <span className={` status ${a.completed ? 'completed' : 'uncompleted'} `}>
+                                    {a.completed ? 'ACCOMPLISHED' : 'UNACCOMPLISHED'}
+                                </span>
+                            </div>
+
+                            <div className="cardButtons">
+                                <button className="editButton" onClick={() => handleEdit(a._id)}>Edit</button>
+                                <button className="deleteButton" onClick={() => handleDelete(a._id)}>Delete</button>
+                            </div>
 
                         </div>
                     ))}

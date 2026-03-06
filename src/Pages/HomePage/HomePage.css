@@ -1,0 +1,67 @@
+.accomplishmentContainer {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+}
+
+.accomplishmentHeader {
+    border: 10px dashed rgba(59, 63, 173, 0.7);
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(59, 63, 173, 0.3);
+    background: linear-gradient(172deg,
+            rgba(59, 63, 173, 0.5),
+            rgba(59, 173, 160, 0.5),
+            rgba(59, 173, 86, 0.5));
+    font-weight: 900;
+    margin-bottom: 50px;
+   
+
+}
+
+.accomplishmentCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.status {
+    font-size: 2rem;
+    font-weight: 900;
+    border-radius: 70px;
+    padding: 12px 14px;
+}
+
+.cardStatus {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.status.completed {
+    color: #155724;
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
+}
+
+.status.uncompleted {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 2px solid #f5c6cb;
+}
+
+.accomplishmentName {
+    margin: 20px;
+}
+
+.accomplismentName {
+    margin-bottom: 10px;          /* space between title and notes */
+    text-align: left;             /* aligns title to the left */
+}
+
+/* The h3 inside */
+.accomplismentName h3 {
+    font-size: 1.4rem;
+    color: #3b3fad;
+    font-weight: 700;        
+    padding: 20px;      /* remove default h3 margin */
+}
