@@ -53,7 +53,7 @@ export default function HomePage() {
         )
     };
 
-    const handleChange = ( accomplishmentId, field, value ) => {
+    const handleChange = (accomplishmentId, field, value) => {
         setAccomplishments(a =>
             a.map(el =>
                 el._id === accomplishmentId
@@ -64,12 +64,12 @@ export default function HomePage() {
         );
     };
 
-    const handleSave = async ( e, accomplishmentId ) => {
+    const handleSave = async (e, accomplishmentId) => {
         e.preventDefault();
         const a = accomplishments.find(el => el._id === accomplishmentId);
 
         try {
-            
+
             const response = await axios.put(`http://localhost:3000/api/accomplishment/${accomplishmentId}`, {
                 accomplishment: a.editAccomplishment,
                 notes: a.editNotes.split(",").map(n => n.trim()),
@@ -89,46 +89,77 @@ export default function HomePage() {
     }
 
 
-
     return (
-        <>
-            <div className="accomplishmentContainer">
-                <header className="accomplishmentHeader">
-                    <h1>{`Welcome, ${user.firstName} ${user.lastName}`}</h1>
-                    <h2>{`${user.username}'s Accomplishment`}</h2>
-                </header>
+        <div className="accomplishmentContainer">
+            <header className="accomplishmentHeader">
+                <h1>{`Welcome, ${user.firstName} ${user.lastName}`}</h1>
+                <h2>{`${user.username}'s Accomplishment`}</h2>
+            </header>
 
-                <div>
-                    {accomplishments.map((a, index) => (
-                        <div key={index} className="accomplishmentCard">
+            <div>
+                {accomplishments.map((a, index) => (
+                    <div key={index} className="accomplishmentCard">
 
-                            <div className="accomplismentName">
-                                <h3>{a.accomplishment}</h3>
-                            </div>
+                        {a.isEditing ? (
+                            <form className="editForm" onSubmit={e => handleSave(e, a._id)}>
+                                <input type="text"
+                                    value={a.editAccomplishment}
+                                    onChange={e => handleChange(a._id, 'editAccomplishment', e.target.value)}
+                                    placeholder="Accomplishment ..."
+                                    required />
 
-                            {a.notes && (
-                                <ul>
-                                    {a.notes.map((note, idx) => (
-                                        <li key={idx}> {note} </li>
-                                    ))}
-                                </ul>
-                            )}
+                                <input type="text"
+                                    value={a.editNotes}
+                                    onChange={e => handleChange(a._id, 'editNotes', e.target.value)}
+                                    placeholder="Notes ..."
+                                />
 
-                            <div className="cardStatus">
-                                <span className={` status ${a.completed ? 'completed' : 'uncompleted'} `}>
-                                    {a.completed ? 'ACCOMPLISHED' : 'UNACCOMPLISHED'}
-                                </span>
-                            </div>
+                                <label>
+                                    Completed:
+                                    <input type="checkbox"
+                                        checked={a.editCompleted}
+                                        onChange={e => handleChange(a._id, 'editCompleted', e.target.checked)}
+                                    />
+                                </label>
 
-                            <div className="cardButtons">
-                                <button className="editButton" onClick={() => handleEdit(a._id)}>Edit</button>
-                                <button className="deleteButton" onClick={() => handleDelete(a._id)}>Delete</button>
-                            </div>
+                                <div className="cardButtons">
+                                    <button type="submit">SAVE</button>
+                                </div>
+                            </form>
+                        ) : (
+                            <>
+                                <div className="accomplismentName">
+                                    <h3>{a.accomplishment}</h3>
+                                </div>
 
-                        </div>
-                    ))}
-                </div>
+                                {a.notes && (
+                                    <ul>
+                                        {a.notes.map((note, idx) => (
+                                            <li key={idx}> {note} </li>
+                                        ))}
+                                    </ul>
+                                )}
+
+                                <div className="cardStatus">
+                                    <span className={` status ${a.completed ? 'completed' : 'uncompleted'} `}>
+                                        {a.completed ? 'ACCOMPLISHED' : 'UNACCOMPLISHED'}
+                                    </span>
+                                </div>
+
+                                <div className="cardButtons">
+                                    <button className="editButton" onClick={() => startEdit(a._id)}>Edit</button>
+                                    <button className="deleteButton" onClick={() => handleDelete(a._id)}>Delete</button>
+                                </div>
+                            </>
+                        )}
+
+                    </div>
+                ))}
             </div>
-        </>
+        </div>
+
     )
 }
+
+
+
