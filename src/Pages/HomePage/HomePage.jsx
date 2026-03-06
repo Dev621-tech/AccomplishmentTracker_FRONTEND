@@ -26,6 +26,19 @@ export default function HomePage() {
         getAccomplishments();
     }, [id]);
 
+    const handleDelete = async ( accomplishmentId ) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/accomplishment/${accomplishmentId}`)
+            setAccomplishments(a => a.filter(el => el._id !== accomplishmentId));
+            alert("Successful Deletion !")
+        } catch (error) {
+            console.error(error.message);
+            alert("Failed to delete accomplishment !");
+            
+        }
+    }
+
+    
 
     return (
         <>
