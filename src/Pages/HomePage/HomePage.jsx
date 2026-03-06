@@ -29,12 +29,20 @@ export default function HomePage() {
     return (
         <>
             <div className="accomplishmentContainer">
-                <h2>{`${user.firstName} ${user.lastName}'s Accomplishments`}</h2>
+                <h1>{`${user.firstName} ${user.lastName}`}</h1>
+                <h2>{`${user.username}'s Accomplishment`}</h2>
+
                 <div>
                     {accomplishments.map((a, index) => (
                         <div key={index} className="accomplishmentCard">
-                            <h2>{a.accomplishment}</h2>
-                            {a.notes && <p>{a.notes}</p>}
+                            <h3>{a.accomplishment}</h3>
+                            {a.notes && (
+                                <ul>
+                                    {a.notes.map((note, idx) => (
+                                        <li key={idx}> {note} </li>
+                                    ))}
+                                </ul>
+                            )}
 
                         </div>
                     ))}
