@@ -15,7 +15,7 @@ function App() {
     <Routes>
       <Route path={"/newuser"} element={<CreateAccountPage />} />
       <Route path={"/signingin"} element={<LogInPage />} />
-      <Route path={"/home"} element={<HomePage />} />
+      <Route path={"/user/:id/accomplishments"} element={<HomePage />} />
     </Routes>
  
     </>
