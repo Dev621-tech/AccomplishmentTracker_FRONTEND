@@ -16,7 +16,7 @@
             rgba(59, 173, 86, 0.5));
     font-weight: 900;
     margin-bottom: 50px;
-   
+
 
 }
 
@@ -54,14 +54,34 @@
 }
 
 .accomplismentName {
-    margin-bottom: 10px;          /* space between title and notes */
-    text-align: left;             /* aligns title to the left */
+    margin-bottom: 10px;
+    text-align: left;
 }
 
-/* The h3 inside */
+
 .accomplismentName h3 {
     font-size: 1.4rem;
     color: #3b3fad;
-    font-weight: 700;        
-    padding: 20px;      /* remove default h3 margin */
+    font-weight: 700;
+    padding: 20px;
+}
+
+.editForm input[type="text"] {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 1px solid #999;
+    box-sizing: border-box;
+}
+
+.editForm input[type="checkbox"] {
+    transform: scale(2.2);
+    margin-left: 8px;
+}
+
+.editForm button[type="submit"] {
+    font-size: 1.5rem;
+    padding: 8px 16px;
 }
