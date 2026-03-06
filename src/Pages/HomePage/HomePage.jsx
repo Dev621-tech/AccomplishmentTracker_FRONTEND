@@ -26,7 +26,7 @@ export default function HomePage() {
         getAccomplishments();
     }, [id]);
 
-    const handleDelete = async ( accomplishmentId ) => {
+    const handleDelete = async (accomplishmentId) => {
         try {
             await axios.delete(`http://localhost:3000/api/accomplishment/${accomplishmentId}`)
             setAccomplishments(a => a.filter(el => el._id !== accomplishmentId));
@@ -34,11 +34,61 @@ export default function HomePage() {
         } catch (error) {
             console.error(error.message);
             alert("Failed to delete accomplishment !");
-            
+
         }
     }
 
-    
+    const startEdit = (accomplishmentId) => {
+        setAccomplishments(a =>
+            a.map(el =>
+                el._id === accomplishmentId
+                    ? {
+                        ...el,
+                        isEditing: true,
+                        editAccomplishment: el.accomplishment,
+                        editNotes: el.notes.join(","),
+                        editCompleted: el.completed
+                    } : el
+            )
+        )
+    };
+
+    const handleChange = ( accomplishmentId, field, value ) => {
+        setAccomplishments(a =>
+            a.map(el =>
+                el._id === accomplishmentId
+                    ? { ...el, [field]: value }
+                    : el
+
+            )
+        );
+    };
+
+    const handleSave = async ( e, accomplishmentId ) => {
+        e.preventDefault();
+        const a = accomplishments.find(el => el._id === accomplishmentId);
+
+        try {
+            
+            const response = await axios.put(`http://localhost:3000/api/accomplishment/${accomplishmentId}`, {
+                accomplishment: a.editAccomplishment,
+                notes: a.editNotes.split(",").map(n => n.trim()),
+                completed: a.editCompleted
+            });
+
+            setAccomplishments(a =>
+                a.map(el =>
+                    el._id === accomplishmentId ? { ...response.data, isEditing: false } : el
+                )
+            );
+
+        } catch (error) {
+            console.error(error.message);
+            alert("Edit Failed ! Try Again !")
+        }
+    }
+
+
 
     return (
         <>
