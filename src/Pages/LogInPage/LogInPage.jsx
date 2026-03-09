@@ -20,8 +20,10 @@ export default function LogInPage() {
             });
 
             console.log(response.data);
+            
 
             if (response.data.success){
+                localStorage.setItem("userId", response.data._id);
                 nav(response.data.homepage);
             } else {
                 alert(response.data.message)

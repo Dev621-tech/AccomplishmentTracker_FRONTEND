@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import './HomePage.css';
 
 export default function HomePage() {
     const { id } = useParams();
+    const nav = useNavigate()
 
     const [user, setUser] = useState({});
     const [accomplishments, setAccomplishments] = useState([]);
+
+       if (!id) {
+        return (
+            <div className="homepageNoId">
+                <h1>Welcome to Accomplishment Tracker</h1>
+                <button onClick={() => nav("/signingin")}>Sign In</button>
+            </div>
+        );
+    }
 
     useEffect(() => {
         const getAccomplishments = async () => {

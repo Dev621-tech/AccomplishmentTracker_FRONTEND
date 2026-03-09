@@ -1,8 +1,19 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./NavBar.css";
 import star from "../../assets/star.png";
 
 export default function NavBar() {
+
+    const id = localStorage.getItem("userId");
+    const nav = useNavigate();
+
+    const handleSignOut = () => {
+        
+        localStorage.removeItem("userId");
+
+        nav("/signingin");
+
+    }
 
     return (
         <>
@@ -12,7 +23,8 @@ export default function NavBar() {
                 </Link>
                 <div className="navbarButtons">
                     <nav className="navbarUserButtons">
-                        <Link to={""}><button>HomePage</button></Link>
+                        
+                        <Link to={id ? `/user/${id}/accomplishments` : `/user/accomplishments`}><button>HomePage</button></Link>
                         <Link to={""}><button>Post</button></Link>
                         <Link to={""}><button>Inspiration</button></Link>
                     </nav>
@@ -22,6 +34,8 @@ export default function NavBar() {
                     </div>
 
                     <nav className="navbarAuthButtons">
+
+                       {id && <button onClick={handleSignOut}>Sign Out</button>}
                         <Link to={""}><button>About</button></Link>
                         <Link to={"/signingin"}><button>Sign In</button></Link>
                         <Link to={"/newuser"}><button>Sign Up</button></Link>
