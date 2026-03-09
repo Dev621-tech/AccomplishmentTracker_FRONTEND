@@ -26,7 +26,7 @@ export default function NavBar() {
                         
                         <Link to={id ? `/user/${id}/accomplishments` : `/user/accomplishments`}><button>HomePage</button></Link>
                         <Link to={""}><button>Post</button></Link>
-                        <Link to={""}><button>Inspiration</button></Link>
+                        <Link to={"/inspiration"}><button>Inspiration</button></Link>
                     </nav>
 
                     <div className="navbarIcon">

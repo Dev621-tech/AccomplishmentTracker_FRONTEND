@@ -1,9 +1,10 @@
 import './App.css';
 import { Routes, Route } from "react-router";
 import NavBar from "./Components/NavBar/NavBar.jsx";
-import CreateAccountPage from "./Pages/CreateAccountPage.jsx";
+import CreateAccountPage from "./Pages/CreateAccountPage/CreateAccountPage.jsx";
 import LogInPage from "./Pages/LogInPage/LogInPage.jsx";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
+import InspirationPage from './Pages/InspirationPage/InspirationPage.jsx';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Route path={"/signingin"} element={<LogInPage />} />
       <Route path={"/user/accomplishments"} element={<HomePage />} />
       <Route path={"/user/:id/accomplishments"} element={<HomePage />} />
+      <Route path={"/inspiration"} element={<InspirationPage />} />
     </Routes>
  
     </>

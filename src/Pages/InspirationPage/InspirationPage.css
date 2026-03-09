@@ -1,0 +1,53 @@
+/* Container for all cards */
+.allAccomplishmentContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 equal columns */
+    gap: 20px;
+    /* space between cards */
+    padding: 20px;
+}
+
+/* Individual card styling */
+.allAccomplishmentCard {
+    background-color: #f0f4ff;
+    border: 2px solid #3b3fad;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.allAccomplishmentCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: text styling inside cards */
+.allAccomplishmentCard h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #3b3fad;
+}
+
+.allAccomplishmentCard h3 {
+    font-size: 1rem;
+    color: #555;
+}
+
+.allAccomplishmentContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.allAccomplishmentCard {
+    background: #f0f4ff;
+    border: 2px solid #3b3fad;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
