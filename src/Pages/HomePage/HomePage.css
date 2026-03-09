@@ -1,15 +1,17 @@
+/* ACCOMPLISHMENT CARD */
+
 .accomplishmentContainer {
     max-width: 1000px;
     margin: 50px auto;
-    padding: 20px;
+    padding: 20px 0;
     font-family: 'Courier New', monospace;
 }
 
 .accomplishmentHeader {
     border: 10px dashed rgba(59, 63, 173, 0.7);
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(59, 63, 173, 0.3);
+    border-radius: 250px;
+    box-shadow: 0 20px 20px rgba(59, 63, 173, 0.3);
     background: linear-gradient(172deg,
             rgba(59, 63, 173, 0.5),
             rgba(59, 173, 160, 0.5),
@@ -65,6 +67,73 @@
     font-weight: 700;
     padding: 20px;
 }
+
+/* CREATE FORM */
+
+.formWrapper {
+    border-radius: 250px;
+    border: 3px dashed #3b3FAD;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.formWrapper:hover {
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.formWrapper h4 {
+    font-size: 1.5rem;
+}
+
+.createForm {
+
+    gap: 0.75rem;
+    width: 100%;
+    /* fill parent */
+    box-sizing: border-box;
+    text-align: left;
+    /* prevent centering shrinking inputs */
+    padding: 1rem 0;
+}
+
+.createForm label {
+    display: flex;
+    flex-direction: column;
+    padding: .1rem;
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+.createForm input[type="text"] {
+    width: 600px;
+    /* fill form width */
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid #999;
+    font-size: 1.2rem;
+}
+
+.createForm input[type="checkbox"] {
+    transform: scale(2.2);
+    margin-left: 8px;
+}
+
+.createForm button[type="submit"] {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+}
+
+.createForm button[type="submit"]:hover {
+    background-color: #d4edda;
+}
+
+
+
+/* Edit Form */
 
 .editForm input[type="text"] {
     width: 100%;

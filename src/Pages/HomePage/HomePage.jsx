@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import axios from "axios";
+import star from "../../assets/star.png";
 import './HomePage.css';
+
 
 export default function HomePage() {
     const { id } = useParams();
@@ -10,7 +12,35 @@ export default function HomePage() {
     const [user, setUser] = useState({});
     const [accomplishments, setAccomplishments] = useState([]);
 
-       if (!id) {
+    const [newAccomplishment, setNewAccomplishment] = useState("");
+    const [newNotes, setNewNotes] = useState("");
+    const [newCompleted, setNewCompleted] = useState(false);
+
+    const handleCreate = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post(`http://localhost:3000/api/user/${id}/accomplishments`, {
+                accomplishment: newAccomplishment,
+                notes: newNotes.split(",").map(n => n.trim()),
+                completed: newCompleted
+            });
+
+            setAccomplishments(prev => [response.data, ...prev]);
+
+            setNewAccomplishment("");
+            setNewNotes("");
+            setNewCompleted(false);
+
+            alert("Congraulations! On Your New Accomplishment")
+
+        } catch (error) {
+            console.error(error.message);
+            alert("Failed to create new accomplishment")
+        }
+    }
+
+    if (!id) {
         return (
             <div className="homepageNoId">
                 <h1>Welcome to Accomplishment Tracker</h1>
@@ -102,8 +132,53 @@ export default function HomePage() {
     return (
         <div className="accomplishmentContainer">
             <header className="accomplishmentHeader">
-                <h1>{`Welcome, ${user.firstName} ${user.lastName}`}</h1>
+                <h1>Welcome</h1>
+                <h1>{`${user.firstName} ${user.lastName}`}</h1>
                 <h2>{`${user.username}'s Accomplishment`}</h2>
+
+                <div className="navbarIcon">
+                    <img src={star} alt="icon" />
+                </div>
+
+
+                <div className="formWrapper">
+                    <h4>Create A New Accomplishment</h4>
+                    <form className="createForm" onSubmit={handleCreate}>
+                        <label>
+                            Accomplishment:
+                            <input
+                                type="text"
+                                value={newAccomplishment}
+                                onChange={e => setNewAccomplishment(e.target.value)} placeholder="New Accomplishment"
+                                required
+                            /></label>
+
+                        <label>
+                            Notes:
+                            <input
+                                type="text"
+                                value={newNotes}
+                                onChange={e => setNewNotes(e.target.value)}
+                                placeholder="Notes (Comma Sepaprated)"
+                            />
+                        </label>
+
+                        <label>
+                            Completed:
+                            <input
+                                type="checkbox"
+                                checked={newCompleted}
+                                onChange={e => setNewCompleted(e.target.checked)}
+                            />
+                        </label>
+
+                        <p>Completed: {newCompleted ? "Yes" : "No"}</p>
+                        <br />
+                        <button type="submit">Create</button>
+                    </form>
+                </div>
+
+
             </header>
 
             <div>
