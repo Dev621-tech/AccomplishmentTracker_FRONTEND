@@ -1,21 +1,22 @@
-/* Container for all cards */
 .allAccomplishmentContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 4 equal columns */
     gap: 20px;
-    /* space between cards */
     padding: 20px;
 }
 
-/* Individual card styling */
+
 .allAccomplishmentCard {
-    background-color: #f0f4ff;
-    border: 2px solid #3b3fad;
+        background: linear-gradient(172deg,
+            rgba(59, 63, 173, 0.5),
+            rgba(59, 173, 160, 0.5),
+            rgba(59, 173, 86, 0.5));
+    border: 2px solid #02067c;
     border-radius: 12px;
     padding: 16px;
+    text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
 }
 
 .allAccomplishmentCard:hover {
@@ -23,11 +24,10 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Optional: text styling inside cards */
 .allAccomplishmentCard h2 {
     font-size: 1.2rem;
     margin-bottom: 8px;
-    color: #3b3fad;
+    color: #02067c;
 }
 
 .allAccomplishmentCard h3 {
@@ -35,19 +35,19 @@
     color: #555;
 }
 
-.allAccomplishmentContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
+h1 {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 3rem;
 }
 
-.allAccomplishmentCard {
-    background: #f0f4ff;
-    border: 2px solid #3b3fad;
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.inspirationHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+.inspirationIcon img {
+    height: 40px;
+    width: auto;
 }

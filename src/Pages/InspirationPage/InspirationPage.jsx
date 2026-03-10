@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import './InspirationPage.css'
+import star from "../../assets/star.png"
 
 export default function InspirationPage() {
     const [allAccomplishments, setAllAccomplishment] = useState([]);
@@ -26,7 +27,15 @@ export default function InspirationPage() {
 
     return (
         <>
-            <h1>Inspiration Page</h1>
+            <div className="inspirationHeader">
+                <h1>Inspiration Page</h1>
+
+                <div className="inspirationIcon">
+                    <img src={star} alt="icon" />
+                </div>
+            </div>
+
+
             <div className="allAccomplishmentContainer">
                 {allAccomplishments.map(a => {
                     const user = allUsers.find(u => u._id === a.userId);

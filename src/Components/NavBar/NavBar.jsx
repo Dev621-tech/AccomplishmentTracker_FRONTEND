@@ -36,7 +36,7 @@ export default function NavBar() {
                     <nav className="navbarAuthButtons">
 
                        {id && <button onClick={handleSignOut}>Sign Out</button>}
-                        <Link to={""}><button>About</button></Link>
+                        <Link to={"/about"}><button>About</button></Link>
                         <Link to={"/signingin"}><button>Sign In</button></Link>
                         <Link to={"/newuser"}><button>Sign Up</button></Link>
                     </nav>
