@@ -25,8 +25,9 @@ export default function NavBar() {
                     <nav className="navbarUserButtons">
                         
                         <Link to={id ? `/user/${id}/accomplishments` : `/user/accomplishments`}><button>HomePage</button></Link>
-                        <Link to={""}><button>Post</button></Link>
+                        <Link to={id ? `/user/${id}/posts` : `/user/posts`}><button>Post</button></Link>
                         <Link to={"/inspiration"}><button>Inspiration</button></Link>
+                        
                     </nav>
 
                     <div className="navbarIcon">

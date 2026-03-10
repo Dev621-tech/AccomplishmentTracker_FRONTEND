@@ -89,7 +89,6 @@
 }
 
 .createForm {
-
     gap: 0.75rem;
     width: 100%;
     /* fill parent */
@@ -130,8 +129,6 @@
 .createForm button[type="submit"]:hover {
     background-color: #d4edda;
 }
-
-
 
 /* Edit Form */
 
@@ -187,4 +184,19 @@
 .homepageNoId button:hover {
     background-color: #d4edda;
     transform: translateY(-2px);
+}
+
+.editButton {
+    background-color: #2926df;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 10px;
+}
+
+.editButton:hover {
+    background-color: #221aff;
 }

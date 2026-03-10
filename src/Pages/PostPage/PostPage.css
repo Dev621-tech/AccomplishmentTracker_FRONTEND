@@ -1,0 +1,107 @@
+.createPostContainer {
+     border: 10px dashed rgba(59, 63, 173, 0.7);
+    text-align: center;
+    border-radius: 250px;
+    box-shadow: 0 20px 20px rgba(59, 63, 173, 0.3);
+    background: linear-gradient(172deg,
+            rgba(59, 63, 173, 0.5),
+            rgba(59, 173, 160, 0.5),
+            rgba(59, 173, 86, 0.5));
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.createPostContainer:hover{
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.postCard {
+    border: 1px solid #999;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color: #f9f9f9;
+}
+
+.postCard:hover{
+     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.deleteButton {
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.deleteButton:hover {
+    background-color: #ff1a1a;
+}
+
+.postContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Courier New', monospace;
+}
+
+.postForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+.postForm textarea {
+    width: 90%;
+    min-height: 100px;
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid #999;
+    box-sizing: border-box;
+}
+
+.postForm button {
+    width: 120px;
+    padding: 8px 16px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    background-color: #3b3FAD;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.postForm button:hover {
+    background-color: #57F527;
+}
+
+.postList {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.postCard {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #3b3FAD;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.postCard span {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
