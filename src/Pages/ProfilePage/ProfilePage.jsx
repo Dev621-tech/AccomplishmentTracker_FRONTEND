@@ -7,6 +7,8 @@ export default function ProfilePage() {
     const { id } = useParams();
 
     const [user, setUser] = useState(null);
+    const [editingField, setEditingField] = useState(null);
+    const [tempValue, setTempValue] = useState("");
 
     useEffect(() => {
         const getUser = async () => {
@@ -20,23 +22,59 @@ export default function ProfilePage() {
         };
         getUser();
     }, []);
+
+    const startEditing = (field) => {
+        setEditingField(field);
+        setTempValue(user[field]);
+    };
+
+    const handleSave = async (field) => {
+        try {
+
+            const response = await axios.put(`http://localhost:3000/api/user/${id}`, {
+                [field]: tempValue
+            });
+            setUser(response.data);
+            setEditingField(null);
+            setTempValue("");
+
+        } catch (error) {
+            console.error(error.message);
+            alert("Update Failed")
+        }
+    }
+
     return (
         <>
-            <div className="profileContainer">
-                {user ? (
-                    <>
-                        <h1>{`${user.firstName} ${user.lastName}'s Profile`}</h1>
-                        <h2>{`First Name: ${user.firstName}`}</h2>
-                        <h2>{`Last Name: ${user.lastName}`}</h2>
-                        <h2>{`Username: ${user.username}`}</h2>
-                        <h2>{`Email: ${user.email}`}</h2>
-                        <h2>{`Password: ${user.password}`}</h2>
-                    </>
+                <div className="profileContainer">
+        {user ? (
+            <>
+                <h1>{`${user.firstName} ${user.lastName}'s Profile`}</h1>
 
-                ) : (
-                    <p>Loading...</p>
-                )}
-            </div>
+                {["firstName", "lastName", "username", "email", "password"].map((field) => (
+                    <div key={field} className="profileField">
+                        {editingField === field ? (
+                            <>
+                                <input
+                                    type={field === "password" ? "password" : "text"}
+                                    value={tempValue}
+                                    onChange={(e) => setTempValue(e.target.value)}
+                                />
+                                <button onClick={() => handleSave(field)}>Save</button>
+                            </>
+                        ) : (
+                            <>
+                                <h2>{`${field}: ${user[field]}`}</h2>
+                                <button className="editButton" onClick={() => startEditing(field)}>Edit</button>
+                            </>
+                        )}
+                    </div>
+                ))}
+            </>
+        ) : (
+            <p>Loading...</p>
+        )}
+    </div>
         </>
 
     )
