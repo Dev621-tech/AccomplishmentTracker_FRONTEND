@@ -18,7 +18,7 @@ export default function NavBar() {
     return (
         <>
             <header className="navbar">
-                <Link to={"/"}>
+                <Link to={id ? `/user/${id}/accomplishments` : `/user/accomplishments`}>
                     <h1 className="navbarTitle">Accomplishment Tracker</h1>
                 </Link>
                 <div className="navbarButtons">
