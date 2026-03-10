@@ -1,0 +1,20 @@
+.profileContainer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    border: 10px dashed rgba(59, 63, 173, 0.7);
+    border-radius: 250px;
+    box-shadow: 0 20px 20px rgba(59, 63, 173, 0.3);
+    background: linear-gradient(172deg,
+            rgba(59, 63, 173, 0.5),
+            rgba(59, 173, 160, 0.5),
+            rgba(59, 173, 86, 0.5));
+}
+
+.profileContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

@@ -7,6 +7,7 @@ import HomePage from "./Pages/HomePage/HomePage.jsx";
 import InspirationPage from './Pages/InspirationPage/InspirationPage.jsx';
 import AboutPage from './Pages/AboutPage/AboutPage.jsx';
 import PostPage from './Pages/PostPage/PostPage.jsx';
+import ProfilePage from './Pages/ProfilePage/ProfilePage.jsx';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <Route path={"/user/:id/posts"} element={<PostPage />} />
       <Route path={"/inspiration"} element={<InspirationPage />} />
       <Route path={"/about"} element={<AboutPage />} />
+      <Route path={"/user/:id/profile"} element={<ProfilePage />} />
 
     </Routes>
  
