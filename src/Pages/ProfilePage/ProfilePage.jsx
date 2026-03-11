@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import './ProfilePage.css';
 
 export default function ProfilePage() {
     const { id } = useParams();
+    const nav = useNavigate();
 
     const [user, setUser] = useState(null);
     const [editingField, setEditingField] = useState(null);
@@ -44,6 +45,23 @@ export default function ProfilePage() {
         }
     }
 
+    const handleDelete = async () => {
+        const confirmDelete = window.confirm("Are you sure you want to delete your entire account?")
+
+        if (!confirmDelete) return;
+
+        try {
+            await axios.delete(`http://localhost:3000/api/user/${id}`);
+            alert("Account Deleted");
+            localStorage.removeItem("userId");
+            nav("/newuser");
+
+        } catch (error) {
+            console.error(error.message);
+            alert("Deletion Failed")
+        }
+    }
+
     return (
         <>
                 <div className="profileContainer">
@@ -70,6 +88,7 @@ export default function ProfilePage() {
                         )}
                     </div>
                 ))}
+                <button className="deleteButton" onClick={handleDelete}>Delete Account</button>
             </>
         ) : (
             <p>Loading...</p>
