@@ -24,4 +24,5 @@
 *   Images With Every Accomplishment
 *   Friends (Add Friends & Viewing Their HomePage)
 *   Viewing Every "Accomplishment Card"
+*   Admin Routes
 *   Weather API ? (The Weather Can Be Motivational)
