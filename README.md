@@ -1,7 +1,7 @@
-# Accomplishment Tracker
-## [Accomplishment Tracker BACKEND](https://github.com/Dev621-tech/AccomplishmentTracker_BACKEND)
+# 🏆 Accomplishment Tracker Frontend 🏆
+## [💾 Accomplishment Tracker BACKEND](https://github.com/Dev621-tech/AccomplishmentTracker_BACKEND)
 
-## EVERYTHING IS AN ACCOMPLISHEMENT
+## 🏁 EVERYTHING IS AN ACCOMPLISHEMENT
 *   Creating Account (Sign Up)
 *   Log In (Sign In)
 *   Homepage (See All Your Accomplishments & Make More)
@@ -11,18 +11,19 @@
 *   Profile Page (Edit Your User Profile If Something Changes)
 *   Sign Out (Sign Out When You Are Done!)
 
-### [Organized Using JIRA](https://www.atlassian.com/software/jira?referer=jira.com)
-### Acknowledgement
+### [🗂️ Organized Using JIRA](https://www.atlassian.com/software/jira?referer=jira.com)
+### 🙏 Acknowledgements
 *   [Pexels](https://www.pexels.com/)
 *   [HTML Color Codes](https://htmlcolorcodes.com/)
 
-### Dependencies
+### 📦 Dependencies
 *   axios
 *   react-router
 
-### Whats Next For The Accomplishment Tracker
+### 🔜 Whats Next For The Accomplishment Tracker
 *   Images With Every Accomplishment
 *   Friends (Add Friends & Viewing Their HomePage)
 *   Viewing Every "Accomplishment Card"
 *   Admin Routes
+*   Delete Account Button On Profile Page
 *   Weather API ? (The Weather Can Be Motivational)
