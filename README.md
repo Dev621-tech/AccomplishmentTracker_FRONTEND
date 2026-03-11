@@ -11,7 +11,7 @@
 *   Profile Page (Edit Your User Profile If Something Changes)
 *   Sign Out (Sign Out When You Are Done!)
 
-### Organized Using JIRA
+### [Organized Using JIRA](https://www.atlassian.com/software/jira?referer=jira.com)
 ### Acknowledgement
 *   [Pexels](https://www.pexels.com/)
 *   [HTML Color Codes](https://htmlcolorcodes.com/)
@@ -20,3 +20,8 @@
 *   axios
 *   react-router
 
+### Whats Next For The Accomplishment Tracker
+*   Images With Every Accomplishment
+*   Friends (Add Friends & Viewing Their HomePage)
+*   Viewing Every "Accomplishment Card"
+*   Weather API ? (The Weather Can Be Motivational)
